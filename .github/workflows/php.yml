@@ -7,7 +7,7 @@ on:
 jobs:
   syntax:
     name: "Check Syntax (${{ matrix.php }})"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -20,7 +20,7 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
       env:
-        runner: self-hosted
+        runner: ubuntu-latest
     - uses: actions/checkout@v4
     - run: echo "::add-matcher::.github/php-syntax.json"
     - run: |
